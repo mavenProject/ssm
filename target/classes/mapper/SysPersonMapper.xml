@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.springmvc.dao.SysPersonMapper" >
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.SysPerson" >
+    <id column="FD_OBJECTID" property="fdObjectid" jdbcType="VARCHAR" />
+    <result column="PERSON_CODE" property="personCode" jdbcType="OTHER" />
+    <result column="PERSON_ID" property="personId" jdbcType="VARCHAR" />
+    <result column="SYS_CODE" property="sysCode" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="IDCARD" property="idcard" jdbcType="VARCHAR" />
+    <result column="SEX" property="sex" jdbcType="VARCHAR" />
+    <result column="DEPT_ID" property="deptId" jdbcType="VARCHAR" />
+    <result column="UNDERTAKING" property="undertaking" jdbcType="VARCHAR" />
+    <result column="IDOUT" property="idout" jdbcType="VARCHAR" />
+    <result column="OUT_ID" property="outId" jdbcType="VARCHAR" />
+    <result column="DEPTS_ID" property="deptsId" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="ORDER_NUM" property="orderNum" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="OTHER" />
+    <result column="AGE" property="age" jdbcType="VARCHAR" />
+    <result column="BIRTHDAY" property="birthday" jdbcType="DATE" />
+    <result column="BIRTHPLACE" property="birthplace" jdbcType="OTHER" />
+    <result column="EDUCATION" property="education" jdbcType="VARCHAR" />
+    <result column="POLITICAL_LANDSCAPE" property="politicalLandscape" jdbcType="VARCHAR" />
+    <result column="WORKTIME" property="worktime" jdbcType="VARCHAR" />
+    <result column="WORGLKTIME" property="worglktime" jdbcType="VARCHAR" />
+    <result column="SJPXKTIME" property="sjpxktime" jdbcType="VARCHAR" />
+    <result column="WORKLZTIME" property="worklztime" jdbcType="VARCHAR" />
+    <result column="GRADUATIONTIME" property="graduationtime" jdbcType="VARCHAR" />
+    <result column="WORKDEPT" property="workdept" jdbcType="VARCHAR" />
+    <result column="POSITION" property="position" jdbcType="VARCHAR" />
+    <result column="JOB" property="job" jdbcType="VARCHAR" />
+    <result column="LAWENFORDATE" property="lawenfordate" jdbcType="DATE" />
+    <result column="LAWENFORCODE" property="lawenforcode" jdbcType="VARCHAR" />
+    <result column="GOVERCODE" property="govercode" jdbcType="VARCHAR" />
+    <result column="CHESTEMBLEMCODE" property="chestemblemcode" jdbcType="VARCHAR" />
+    <result column="LZSGCODE" property="lzsgcode" jdbcType="VARCHAR" />
+    <result column="FILENUM" property="filenum" jdbcType="VARCHAR" />
+    <result column="PERSONTYPE" property="persontype" jdbcType="VARCHAR" />
+    <result column="UPDATEDATE" property="updatedate" jdbcType="DATE" />
+    <result column="IS_DEL" property="isDel" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.personCode != null" >
+         and PERSON_CODE = #{condition.personCode}
+      </if>
+      <if test="condition.personId != null" >
+         and PERSON_ID = #{condition.personId}
+      </if>
+      <if test="condition.sysCode != null" >
+         and SYS_CODE = #{condition.sysCode}
+      </if>
+      <if test="condition.name != null" >
+         and NAME = #{condition.name}
+      </if>
+      <if test="condition.idcard != null" >
+         and IDCARD = #{condition.idcard}
+      </if>
+      <if test="condition.sex != null" >
+         and SEX = #{condition.sex}
+      </if>
+      <if test="condition.deptId != null" >
+         and DEPT_ID = #{condition.deptId}
+      </if>
+      <if test="condition.undertaking != null" >
+         and UNDERTAKING = #{condition.undertaking}
+      </if>
+      <if test="condition.idout != null" >
+         and IDOUT = #{condition.idout}
+      </if>
+      <if test="condition.outId != null" >
+         and OUT_ID = #{condition.outId}
+      </if>
+      <if test="condition.deptsId != null" >
+         and DEPTS_ID = #{condition.deptsId}
+      </if>
+      <if test="condition.phone != null" >
+         and PHONE = #{condition.phone}
+      </if>
+      <if test="condition.mobile != null" >
+         and MOBILE = #{condition.mobile}
+      </if>
+      <if test="condition.email != null" >
+         and EMAIL = #{condition.email}
+      </if>
+      <if test="condition.orderNum != null" >
+         and ORDER_NUM = #{condition.orderNum}
+      </if>
+      <if test="condition.remark != null" >
+         and REMARK = #{condition.remark}
+      </if>
+      <if test="condition.age != null" >
+         and AGE = #{condition.age}
+      </if>
+      <if test="condition.birthday != null" >
+         and BIRTHDAY = #{condition.birthday}
+      </if>
+      <if test="condition.birthplace != null" >
+         and BIRTHPLACE = #{condition.birthplace}
+      </if>
+      <if test="condition.education != null" >
+         and EDUCATION = #{condition.education}
+      </if>
+      <if test="condition.politicalLandscape != null" >
+         and POLITICAL_LANDSCAPE = #{condition.politicalLandscape}
+      </if>
+      <if test="condition.worktime != null" >
+         and WORKTIME = #{condition.worktime}
+      </if>
+      <if test="condition.worglktime != null" >
+         and WORGLKTIME = #{condition.worglktime}
+      </if>
+      <if test="condition.sjpxktime != null" >
+         and SJPXKTIME = #{condition.sjpxktime}
+      </if>
+      <if test="condition.worklztime != null" >
+         and WORKLZTIME = #{condition.worklztime}
+      </if>
+      <if test="condition.graduationtime != null" >
+         and GRADUATIONTIME = #{condition.graduationtime}
+      </if>
+      <if test="condition.workdept != null" >
+         and WORKDEPT = #{condition.workdept}
+      </if>
+      <if test="condition.position != null" >
+         and POSITION = #{condition.position}
+      </if>
+      <if test="condition.job != null" >
+         and JOB = #{condition.job}
+      </if>
+      <if test="condition.lawenfordate != null" >
+         and LAWENFORDATE = #{condition.lawenfordate}
+      </if>
+      <if test="condition.lawenforcode != null" >
+         and LAWENFORCODE = #{condition.lawenforcode}
+      </if>
+      <if test="condition.govercode != null" >
+         and GOVERCODE = #{condition.govercode}
+      </if>
+      <if test="condition.chestemblemcode != null" >
+         and CHESTEMBLEMCODE = #{condition.chestemblemcode}
+      </if>
+      <if test="condition.lzsgcode != null" >
+         and LZSGCODE = #{condition.lzsgcode}
+      </if>
+      <if test="condition.filenum != null" >
+         and FILENUM = #{condition.filenum}
+      </if>
+      <if test="condition.persontype != null" >
+         and PERSONTYPE = #{condition.persontype}
+      </if>
+      <if test="condition.updatedate != null" >
+         and UPDATEDATE = #{condition.updatedate}
+      </if>
+      <if test="condition.isDel != null" >
+         and IS_DEL = #{condition.isDel}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    FD_OBJECTID, PERSON_CODE, PERSON_ID, SYS_CODE, NAME, IDCARD, SEX, DEPT_ID, UNDERTAKING, 
+    IDOUT, OUT_ID, DEPTS_ID, PHONE, MOBILE, EMAIL, ORDER_NUM, REMARK, AGE, BIRTHDAY, 
+    BIRTHPLACE, EDUCATION, POLITICAL_LANDSCAPE, WORKTIME, WORGLKTIME, SJPXKTIME, WORKLZTIME, 
+    GRADUATIONTIME, WORKDEPT, POSITION, JOB, LAWENFORDATE, LAWENFORCODE, GOVERCODE, CHESTEMBLEMCODE, 
+    LZSGCODE, FILENUM, PERSONTYPE, UPDATEDATE, IS_DEL
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.springmvc.objModel.Criteria" >
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SYS_PERSON
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_PERSON
+    where FD_OBJECTID = #{fdObjectid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_PERSON
+    where FD_OBJECTID = #{fdObjectid}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.springmvc.objModel.Criteria" >
+    delete from SYS_PERSON
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.SysPerson" >
+    <selectKey resultType="java.lang.String" keyProperty="fdObjectid" order="BEFORE" >
+      select sys_guid() from dual
+    </selectKey>
+    insert into SYS_PERSON (FD_OBJECTID, PERSON_CODE, PERSON_ID, SYS_CODE, NAME, IDCARD, 
+      SEX, DEPT_ID, UNDERTAKING, IDOUT, OUT_ID, DEPTS_ID, PHONE, MOBILE, 
+      EMAIL, ORDER_NUM, REMARK, AGE, BIRTHDAY, BIRTHPLACE, EDUCATION, 
+      POLITICAL_LANDSCAPE, WORKTIME, WORGLKTIME, SJPXKTIME, WORKLZTIME, 
+      GRADUATIONTIME, WORKDEPT, POSITION, JOB, LAWENFORDATE, LAWENFORCODE, 
+      GOVERCODE, CHESTEMBLEMCODE, LZSGCODE, FILENUM, PERSONTYPE, UPDATEDATE, 
+      IS_DEL)
+    values (#{fdObjectid}, #{personCode}, #{personId}, #{sysCode}, #{name}, #{idcard}, 
+      #{sex}, #{deptId}, #{undertaking}, #{idout}, #{outId}, #{deptsId}, #{phone}, #{mobile}, 
+      #{email}, #{orderNum}, #{remark}, #{age}, #{birthday}, #{birthplace}, #{education}, 
+      #{politicalLandscape}, #{worktime}, #{worglktime}, #{sjpxktime}, #{worklztime}, 
+      #{graduationtime}, #{workdept}, #{position}, #{job}, #{lawenfordate}, #{lawenforcode}, 
+      #{govercode}, #{chestemblemcode}, #{lzsgcode}, #{filenum}, #{persontype}, #{updatedate}, 
+      #{isDel})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.SysPerson" >
+    <selectKey resultType="java.lang.String" keyProperty="fdObjectid" order="BEFORE" >
+      select sys_guid() from dual
+    </selectKey>
+    insert into SYS_PERSON
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      FD_OBJECTID,
+      <if test="personCode != null" >
+        PERSON_CODE,
+      </if>
+      <if test="personId != null" >
+        PERSON_ID,
+      </if>
+      <if test="sysCode != null" >
+        SYS_CODE,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="idcard != null" >
+        IDCARD,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="undertaking != null" >
+        UNDERTAKING,
+      </if>
+      <if test="idout != null" >
+        IDOUT,
+      </if>
+      <if test="outId != null" >
+        OUT_ID,
+      </if>
+      <if test="deptsId != null" >
+        DEPTS_ID,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="orderNum != null" >
+        ORDER_NUM,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="age != null" >
+        AGE,
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY,
+      </if>
+      <if test="birthplace != null" >
+        BIRTHPLACE,
+      </if>
+      <if test="education != null" >
+        EDUCATION,
+      </if>
+      <if test="politicalLandscape != null" >
+        POLITICAL_LANDSCAPE,
+      </if>
+      <if test="worktime != null" >
+        WORKTIME,
+      </if>
+      <if test="worglktime != null" >
+        WORGLKTIME,
+      </if>
+      <if test="sjpxktime != null" >
+        SJPXKTIME,
+      </if>
+      <if test="worklztime != null" >
+        WORKLZTIME,
+      </if>
+      <if test="graduationtime != null" >
+        GRADUATIONTIME,
+      </if>
+      <if test="workdept != null" >
+        WORKDEPT,
+      </if>
+      <if test="position != null" >
+        POSITION,
+      </if>
+      <if test="job != null" >
+        JOB,
+      </if>
+      <if test="lawenfordate != null" >
+        LAWENFORDATE,
+      </if>
+      <if test="lawenforcode != null" >
+        LAWENFORCODE,
+      </if>
+      <if test="govercode != null" >
+        GOVERCODE,
+      </if>
+      <if test="chestemblemcode != null" >
+        CHESTEMBLEMCODE,
+      </if>
+      <if test="lzsgcode != null" >
+        LZSGCODE,
+      </if>
+      <if test="filenum != null" >
+        FILENUM,
+      </if>
+      <if test="persontype != null" >
+        PERSONTYPE,
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{fdObjectid},
+      <if test="personCode != null" >
+        #{personCode},
+      </if>
+      <if test="personId != null" >
+        #{personId},
+      </if>
+      <if test="sysCode != null" >
+        #{sysCode},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="idcard != null" >
+        #{idcard},
+      </if>
+      <if test="sex != null" >
+        #{sex},
+      </if>
+      <if test="deptId != null" >
+        #{deptId},
+      </if>
+      <if test="undertaking != null" >
+        #{undertaking},
+      </if>
+      <if test="idout != null" >
+        #{idout},
+      </if>
+      <if test="outId != null" >
+        #{outId},
+      </if>
+      <if test="deptsId != null" >
+        #{deptsId},
+      </if>
+      <if test="phone != null" >
+        #{phone},
+      </if>
+      <if test="mobile != null" >
+        #{mobile},
+      </if>
+      <if test="email != null" >
+        #{email},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum},
+      </if>
+      <if test="remark != null" >
+        #{remark},
+      </if>
+      <if test="age != null" >
+        #{age},
+      </if>
+      <if test="birthday != null" >
+        #{birthday},
+      </if>
+      <if test="birthplace != null" >
+        #{birthplace},
+      </if>
+      <if test="education != null" >
+        #{education},
+      </if>
+      <if test="politicalLandscape != null" >
+        #{politicalLandscape},
+      </if>
+      <if test="worktime != null" >
+        #{worktime},
+      </if>
+      <if test="worglktime != null" >
+        #{worglktime},
+      </if>
+      <if test="sjpxktime != null" >
+        #{sjpxktime},
+      </if>
+      <if test="worklztime != null" >
+        #{worklztime},
+      </if>
+      <if test="graduationtime != null" >
+        #{graduationtime},
+      </if>
+      <if test="workdept != null" >
+        #{workdept},
+      </if>
+      <if test="position != null" >
+        #{position},
+      </if>
+      <if test="job != null" >
+        #{job},
+      </if>
+      <if test="lawenfordate != null" >
+        #{lawenfordate},
+      </if>
+      <if test="lawenforcode != null" >
+        #{lawenforcode},
+      </if>
+      <if test="govercode != null" >
+        #{govercode},
+      </if>
+      <if test="chestemblemcode != null" >
+        #{chestemblemcode},
+      </if>
+      <if test="lzsgcode != null" >
+        #{lzsgcode},
+      </if>
+      <if test="filenum != null" >
+        #{filenum},
+      </if>
+      <if test="persontype != null" >
+        #{persontype},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate},
+      </if>
+      <if test="isDel != null" >
+        #{isDel},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.springmvc.objModel.Criteria" resultType="java.lang.Integer" >
+    select count(*) from SYS_PERSON
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update SYS_PERSON
+    <set >
+      <if test="record.fdObjectid != null" >
+        FD_OBJECTID = #{record.fdObjectid},
+      </if>
+      <if test="record.personCode != null" >
+        PERSON_CODE = #{record.personCode},
+      </if>
+      <if test="record.personId != null" >
+        PERSON_ID = #{record.personId},
+      </if>
+      <if test="record.sysCode != null" >
+        SYS_CODE = #{record.sysCode},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name},
+      </if>
+      <if test="record.idcard != null" >
+        IDCARD = #{record.idcard},
+      </if>
+      <if test="record.sex != null" >
+        SEX = #{record.sex},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId},
+      </if>
+      <if test="record.undertaking != null" >
+        UNDERTAKING = #{record.undertaking},
+      </if>
+      <if test="record.idout != null" >
+        IDOUT = #{record.idout},
+      </if>
+      <if test="record.outId != null" >
+        OUT_ID = #{record.outId},
+      </if>
+      <if test="record.deptsId != null" >
+        DEPTS_ID = #{record.deptsId},
+      </if>
+      <if test="record.phone != null" >
+        PHONE = #{record.phone},
+      </if>
+      <if test="record.mobile != null" >
+        MOBILE = #{record.mobile},
+      </if>
+      <if test="record.email != null" >
+        EMAIL = #{record.email},
+      </if>
+      <if test="record.orderNum != null" >
+        ORDER_NUM = #{record.orderNum},
+      </if>
+      <if test="record.remark != null" >
+        REMARK = #{record.remark},
+      </if>
+      <if test="record.age != null" >
+        AGE = #{record.age},
+      </if>
+      <if test="record.birthday != null" >
+        BIRTHDAY = #{record.birthday},
+      </if>
+      <if test="record.birthplace != null" >
+        BIRTHPLACE = #{record.birthplace},
+      </if>
+      <if test="record.education != null" >
+        EDUCATION = #{record.education},
+      </if>
+      <if test="record.politicalLandscape != null" >
+        POLITICAL_LANDSCAPE = #{record.politicalLandscape},
+      </if>
+      <if test="record.worktime != null" >
+        WORKTIME = #{record.worktime},
+      </if>
+      <if test="record.worglktime != null" >
+        WORGLKTIME = #{record.worglktime},
+      </if>
+      <if test="record.sjpxktime != null" >
+        SJPXKTIME = #{record.sjpxktime},
+      </if>
+      <if test="record.worklztime != null" >
+        WORKLZTIME = #{record.worklztime},
+      </if>
+      <if test="record.graduationtime != null" >
+        GRADUATIONTIME = #{record.graduationtime},
+      </if>
+      <if test="record.workdept != null" >
+        WORKDEPT = #{record.workdept},
+      </if>
+      <if test="record.position != null" >
+        POSITION = #{record.position},
+      </if>
+      <if test="record.job != null" >
+        JOB = #{record.job},
+      </if>
+      <if test="record.lawenfordate != null" >
+        LAWENFORDATE = #{record.lawenfordate},
+      </if>
+      <if test="record.lawenforcode != null" >
+        LAWENFORCODE = #{record.lawenforcode},
+      </if>
+      <if test="record.govercode != null" >
+        GOVERCODE = #{record.govercode},
+      </if>
+      <if test="record.chestemblemcode != null" >
+        CHESTEMBLEMCODE = #{record.chestemblemcode},
+      </if>
+      <if test="record.lzsgcode != null" >
+        LZSGCODE = #{record.lzsgcode},
+      </if>
+      <if test="record.filenum != null" >
+        FILENUM = #{record.filenum},
+      </if>
+      <if test="record.persontype != null" >
+        PERSONTYPE = #{record.persontype},
+      </if>
+      <if test="record.updatedate != null" >
+        UPDATEDATE = #{record.updatedate},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update SYS_PERSON
+    set FD_OBJECTID = #{record.fdObjectid},
+      PERSON_CODE = #{record.personCode},
+      PERSON_ID = #{record.personId},
+      SYS_CODE = #{record.sysCode},
+      NAME = #{record.name},
+      IDCARD = #{record.idcard},
+      SEX = #{record.sex},
+      DEPT_ID = #{record.deptId},
+      UNDERTAKING = #{record.undertaking},
+      IDOUT = #{record.idout},
+      OUT_ID = #{record.outId},
+      DEPTS_ID = #{record.deptsId},
+      PHONE = #{record.phone},
+      MOBILE = #{record.mobile},
+      EMAIL = #{record.email},
+      ORDER_NUM = #{record.orderNum},
+      REMARK = #{record.remark},
+      AGE = #{record.age},
+      BIRTHDAY = #{record.birthday},
+      BIRTHPLACE = #{record.birthplace},
+      EDUCATION = #{record.education},
+      POLITICAL_LANDSCAPE = #{record.politicalLandscape},
+      WORKTIME = #{record.worktime},
+      WORGLKTIME = #{record.worglktime},
+      SJPXKTIME = #{record.sjpxktime},
+      WORKLZTIME = #{record.worklztime},
+      GRADUATIONTIME = #{record.graduationtime},
+      WORKDEPT = #{record.workdept},
+      POSITION = #{record.position},
+      JOB = #{record.job},
+      LAWENFORDATE = #{record.lawenfordate},
+      LAWENFORCODE = #{record.lawenforcode},
+      GOVERCODE = #{record.govercode},
+      CHESTEMBLEMCODE = #{record.chestemblemcode},
+      LZSGCODE = #{record.lzsgcode},
+      FILENUM = #{record.filenum},
+      PERSONTYPE = #{record.persontype},
+      UPDATEDATE = #{record.updatedate},
+      IS_DEL = #{record.isDel}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.SysPerson" >
+    update SYS_PERSON
+    <set >
+      <if test="personCode != null" >
+        PERSON_CODE = #{personCode},
+      </if>
+      <if test="personId != null" >
+        PERSON_ID = #{personId},
+      </if>
+      <if test="sysCode != null" >
+        SYS_CODE = #{sysCode},
+      </if>
+      <if test="name != null" >
+        NAME = #{name},
+      </if>
+      <if test="idcard != null" >
+        IDCARD = #{idcard},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex},
+      </if>
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId},
+      </if>
+      <if test="undertaking != null" >
+        UNDERTAKING = #{undertaking},
+      </if>
+      <if test="idout != null" >
+        IDOUT = #{idout},
+      </if>
+      <if test="outId != null" >
+        OUT_ID = #{outId},
+      </if>
+      <if test="deptsId != null" >
+        DEPTS_ID = #{deptsId},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone},
+      </if>
+      <if test="mobile != null" >
+        MOBILE = #{mobile},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email},
+      </if>
+      <if test="orderNum != null" >
+        ORDER_NUM = #{orderNum},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark},
+      </if>
+      <if test="age != null" >
+        AGE = #{age},
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday},
+      </if>
+      <if test="birthplace != null" >
+        BIRTHPLACE = #{birthplace},
+      </if>
+      <if test="education != null" >
+        EDUCATION = #{education},
+      </if>
+      <if test="politicalLandscape != null" >
+        POLITICAL_LANDSCAPE = #{politicalLandscape},
+      </if>
+      <if test="worktime != null" >
+        WORKTIME = #{worktime},
+      </if>
+      <if test="worglktime != null" >
+        WORGLKTIME = #{worglktime},
+      </if>
+      <if test="sjpxktime != null" >
+        SJPXKTIME = #{sjpxktime},
+      </if>
+      <if test="worklztime != null" >
+        WORKLZTIME = #{worklztime},
+      </if>
+      <if test="graduationtime != null" >
+        GRADUATIONTIME = #{graduationtime},
+      </if>
+      <if test="workdept != null" >
+        WORKDEPT = #{workdept},
+      </if>
+      <if test="position != null" >
+        POSITION = #{position},
+      </if>
+      <if test="job != null" >
+        JOB = #{job},
+      </if>
+      <if test="lawenfordate != null" >
+        LAWENFORDATE = #{lawenfordate},
+      </if>
+      <if test="lawenforcode != null" >
+        LAWENFORCODE = #{lawenforcode},
+      </if>
+      <if test="govercode != null" >
+        GOVERCODE = #{govercode},
+      </if>
+      <if test="chestemblemcode != null" >
+        CHESTEMBLEMCODE = #{chestemblemcode},
+      </if>
+      <if test="lzsgcode != null" >
+        LZSGCODE = #{lzsgcode},
+      </if>
+      <if test="filenum != null" >
+        FILENUM = #{filenum},
+      </if>
+      <if test="persontype != null" >
+        PERSONTYPE = #{persontype},
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE = #{updatedate},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel},
+      </if>
+    </set>
+    where FD_OBJECTID = #{fdObjectid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.SysPerson" >
+    update SYS_PERSON
+    set PERSON_CODE = #{personCode},
+      PERSON_ID = #{personId},
+      SYS_CODE = #{sysCode},
+      NAME = #{name},
+      IDCARD = #{idcard},
+      SEX = #{sex},
+      DEPT_ID = #{deptId},
+      UNDERTAKING = #{undertaking},
+      IDOUT = #{idout},
+      OUT_ID = #{outId},
+      DEPTS_ID = #{deptsId},
+      PHONE = #{phone},
+      MOBILE = #{mobile},
+      EMAIL = #{email},
+      ORDER_NUM = #{orderNum},
+      REMARK = #{remark},
+      AGE = #{age},
+      BIRTHDAY = #{birthday},
+      BIRTHPLACE = #{birthplace},
+      EDUCATION = #{education},
+      POLITICAL_LANDSCAPE = #{politicalLandscape},
+      WORKTIME = #{worktime},
+      WORGLKTIME = #{worglktime},
+      SJPXKTIME = #{sjpxktime},
+      WORKLZTIME = #{worklztime},
+      GRADUATIONTIME = #{graduationtime},
+      WORKDEPT = #{workdept},
+      POSITION = #{position},
+      JOB = #{job},
+      LAWENFORDATE = #{lawenfordate},
+      LAWENFORCODE = #{lawenforcode},
+      GOVERCODE = #{govercode},
+      CHESTEMBLEMCODE = #{chestemblemcode},
+      LZSGCODE = #{lzsgcode},
+      FILENUM = #{filenum},
+      PERSONTYPE = #{persontype},
+      UPDATEDATE = #{updatedate},
+      IS_DEL = #{isDel}
+    where FD_OBJECTID = #{fdObjectid}
+  </update>
+</mapper>

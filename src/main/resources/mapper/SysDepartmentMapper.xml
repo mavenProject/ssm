@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.springmvc.dao.SysDepartmentMapper" >
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.SysDepartment" >
+    <id column="FD_OBJECTID" property="fdObjectid" jdbcType="VARCHAR" />
+    <result column="DEPT_ID" property="deptId" jdbcType="VARCHAR" />
+    <result column="SYS_CODE" property="sysCode" jdbcType="VARCHAR" />
+    <result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" />
+    <result column="DEPTS_ID" property="deptsId" jdbcType="VARCHAR" />
+    <result column="ROAD_DIST" property="roadDist" jdbcType="VARCHAR" />
+    <result column="CONTACTNAME" property="contactname" jdbcType="VARCHAR" />
+    <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+    <result column="OFFICE_TEL" property="officeTel" jdbcType="VARCHAR" />
+    <result column="OFFICE_FAX" property="officeFax" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="OTHER" />
+    <result column="UPDATEDATE" property="updatedate" jdbcType="DATE" />
+    <result column="IS_DEL" property="isDel" jdbcType="VARCHAR" />
+    <result column="SORT" property="sort" jdbcType="DECIMAL" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="DEPTMENT_TYPE" property="deptmentType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.deptId != null" >
+         and DEPT_ID = #{condition.deptId}
+      </if>
+      <if test="condition.sysCode != null" >
+         and SYS_CODE = #{condition.sysCode}
+      </if>
+      <if test="condition.deptName != null" >
+         and DEPT_NAME = #{condition.deptName}
+      </if>
+      <if test="condition.deptsId != null" >
+         and DEPTS_ID = #{condition.deptsId}
+      </if>
+      <if test="condition.roadDist != null" >
+         and ROAD_DIST = #{condition.roadDist}
+      </if>
+      <if test="condition.contactname != null" >
+         and CONTACTNAME = #{condition.contactname}
+      </if>
+      <if test="condition.contactPhone != null" >
+         and CONTACT_PHONE = #{condition.contactPhone}
+      </if>
+      <if test="condition.officeTel != null" >
+         and OFFICE_TEL = #{condition.officeTel}
+      </if>
+      <if test="condition.officeFax != null" >
+         and OFFICE_FAX = #{condition.officeFax}
+      </if>
+      <if test="condition.remark != null" >
+         and REMARK = #{condition.remark}
+      </if>
+      <if test="condition.updatedate != null" >
+         and UPDATEDATE = #{condition.updatedate}
+      </if>
+      <if test="condition.isDel != null" >
+         and IS_DEL = #{condition.isDel}
+      </if>
+      <if test="condition.sort != null" >
+         and SORT = #{condition.sort}
+      </if>
+      <if test="condition.type != null" >
+         and TYPE = #{condition.type}
+      </if>
+      <if test="condition.deptmentType != null" >
+         and DEPTMENT_TYPE = #{condition.deptmentType}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    FD_OBJECTID, DEPT_ID, SYS_CODE, DEPT_NAME, DEPTS_ID, ROAD_DIST, CONTACTNAME, CONTACT_PHONE, 
+    OFFICE_TEL, OFFICE_FAX, REMARK, UPDATEDATE, IS_DEL, SORT, TYPE, DEPTMENT_TYPE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.springmvc.objModel.Criteria" >
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SYS_DEPARTMENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_DEPARTMENT
+    where FD_OBJECTID = #{fdObjectid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_DEPARTMENT
+    where FD_OBJECTID = #{fdObjectid}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.springmvc.objModel.Criteria" >
+    delete from SYS_DEPARTMENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.SysDepartment" >
+    <selectKey resultType="java.lang.String" keyProperty="fdObjectid" order="BEFORE" >
+      select sys_guid() from dual
+    </selectKey>
+    insert into SYS_DEPARTMENT (FD_OBJECTID, DEPT_ID, SYS_CODE, DEPT_NAME, DEPTS_ID, ROAD_DIST, 
+      CONTACTNAME, CONTACT_PHONE, OFFICE_TEL, OFFICE_FAX, REMARK, UPDATEDATE, 
+      IS_DEL, SORT, TYPE, DEPTMENT_TYPE)
+    values (#{fdObjectid}, #{deptId}, #{sysCode}, #{deptName}, #{deptsId}, #{roadDist}, 
+      #{contactname}, #{contactPhone}, #{officeTel}, #{officeFax}, #{remark}, #{updatedate}, 
+      #{isDel}, #{sort}, #{type}, #{deptmentType})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.SysDepartment" >
+    <selectKey resultType="java.lang.String" keyProperty="fdObjectid" order="BEFORE" >
+      select sys_guid() from dual
+    </selectKey>
+    insert into SYS_DEPARTMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      FD_OBJECTID,
+      <if test="deptId != null" >
+        DEPT_ID,
+      </if>
+      <if test="sysCode != null" >
+        SYS_CODE,
+      </if>
+      <if test="deptName != null" >
+        DEPT_NAME,
+      </if>
+      <if test="deptsId != null" >
+        DEPTS_ID,
+      </if>
+      <if test="roadDist != null" >
+        ROAD_DIST,
+      </if>
+      <if test="contactname != null" >
+        CONTACTNAME,
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE,
+      </if>
+      <if test="officeTel != null" >
+        OFFICE_TEL,
+      </if>
+      <if test="officeFax != null" >
+        OFFICE_FAX,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+      <if test="sort != null" >
+        SORT,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="deptmentType != null" >
+        DEPTMENT_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{fdObjectid},
+      <if test="deptId != null" >
+        #{deptId},
+      </if>
+      <if test="sysCode != null" >
+        #{sysCode},
+      </if>
+      <if test="deptName != null" >
+        #{deptName},
+      </if>
+      <if test="deptsId != null" >
+        #{deptsId},
+      </if>
+      <if test="roadDist != null" >
+        #{roadDist},
+      </if>
+      <if test="contactname != null" >
+        #{contactname},
+      </if>
+      <if test="contactPhone != null" >
+        #{contactPhone},
+      </if>
+      <if test="officeTel != null" >
+        #{officeTel},
+      </if>
+      <if test="officeFax != null" >
+        #{officeFax},
+      </if>
+      <if test="remark != null" >
+        #{remark},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate},
+      </if>
+      <if test="isDel != null" >
+        #{isDel},
+      </if>
+      <if test="sort != null" >
+        #{sort},
+      </if>
+      <if test="type != null" >
+        #{type},
+      </if>
+      <if test="deptmentType != null" >
+        #{deptmentType},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.springmvc.objModel.Criteria" resultType="java.lang.Integer" >
+    select count(*) from SYS_DEPARTMENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update SYS_DEPARTMENT
+    <set >
+      <if test="record.fdObjectid != null" >
+        FD_OBJECTID = #{record.fdObjectid},
+      </if>
+      <if test="record.deptId != null" >
+        DEPT_ID = #{record.deptId},
+      </if>
+      <if test="record.sysCode != null" >
+        SYS_CODE = #{record.sysCode},
+      </if>
+      <if test="record.deptName != null" >
+        DEPT_NAME = #{record.deptName},
+      </if>
+      <if test="record.deptsId != null" >
+        DEPTS_ID = #{record.deptsId},
+      </if>
+      <if test="record.roadDist != null" >
+        ROAD_DIST = #{record.roadDist},
+      </if>
+      <if test="record.contactname != null" >
+        CONTACTNAME = #{record.contactname},
+      </if>
+      <if test="record.contactPhone != null" >
+        CONTACT_PHONE = #{record.contactPhone},
+      </if>
+      <if test="record.officeTel != null" >
+        OFFICE_TEL = #{record.officeTel},
+      </if>
+      <if test="record.officeFax != null" >
+        OFFICE_FAX = #{record.officeFax},
+      </if>
+      <if test="record.remark != null" >
+        REMARK = #{record.remark},
+      </if>
+      <if test="record.updatedate != null" >
+        UPDATEDATE = #{record.updatedate},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel},
+      </if>
+      <if test="record.sort != null" >
+        SORT = #{record.sort},
+      </if>
+      <if test="record.type != null" >
+        TYPE = #{record.type},
+      </if>
+      <if test="record.deptmentType != null" >
+        DEPTMENT_TYPE = #{record.deptmentType},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update SYS_DEPARTMENT
+    set FD_OBJECTID = #{record.fdObjectid},
+      DEPT_ID = #{record.deptId},
+      SYS_CODE = #{record.sysCode},
+      DEPT_NAME = #{record.deptName},
+      DEPTS_ID = #{record.deptsId},
+      ROAD_DIST = #{record.roadDist},
+      CONTACTNAME = #{record.contactname},
+      CONTACT_PHONE = #{record.contactPhone},
+      OFFICE_TEL = #{record.officeTel},
+      OFFICE_FAX = #{record.officeFax},
+      REMARK = #{record.remark},
+      UPDATEDATE = #{record.updatedate},
+      IS_DEL = #{record.isDel},
+      SORT = #{record.sort},
+      TYPE = #{record.type},
+      DEPTMENT_TYPE = #{record.deptmentType}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.SysDepartment" >
+    update SYS_DEPARTMENT
+    <set >
+      <if test="deptId != null" >
+        DEPT_ID = #{deptId},
+      </if>
+      <if test="sysCode != null" >
+        SYS_CODE = #{sysCode},
+      </if>
+      <if test="deptName != null" >
+        DEPT_NAME = #{deptName},
+      </if>
+      <if test="deptsId != null" >
+        DEPTS_ID = #{deptsId},
+      </if>
+      <if test="roadDist != null" >
+        ROAD_DIST = #{roadDist},
+      </if>
+      <if test="contactname != null" >
+        CONTACTNAME = #{contactname},
+      </if>
+      <if test="contactPhone != null" >
+        CONTACT_PHONE = #{contactPhone},
+      </if>
+      <if test="officeTel != null" >
+        OFFICE_TEL = #{officeTel},
+      </if>
+      <if test="officeFax != null" >
+        OFFICE_FAX = #{officeFax},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark},
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE = #{updatedate},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel},
+      </if>
+      <if test="sort != null" >
+        SORT = #{sort},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type},
+      </if>
+      <if test="deptmentType != null" >
+        DEPTMENT_TYPE = #{deptmentType},
+      </if>
+    </set>
+    where FD_OBJECTID = #{fdObjectid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.SysDepartment" >
+    update SYS_DEPARTMENT
+    set DEPT_ID = #{deptId},
+      SYS_CODE = #{sysCode},
+      DEPT_NAME = #{deptName},
+      DEPTS_ID = #{deptsId},
+      ROAD_DIST = #{roadDist},
+      CONTACTNAME = #{contactname},
+      CONTACT_PHONE = #{contactPhone},
+      OFFICE_TEL = #{officeTel},
+      OFFICE_FAX = #{officeFax},
+      REMARK = #{remark},
+      UPDATEDATE = #{updatedate},
+      IS_DEL = #{isDel},
+      SORT = #{sort},
+      TYPE = #{type},
+      DEPTMENT_TYPE = #{deptmentType}
+    where FD_OBJECTID = #{fdObjectid}
+  </update>
+</mapper>
